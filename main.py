@@ -49,14 +49,6 @@ if selected_gender != "All":
 tab1, tab2 = st.tabs(["Name Trends", "Year Overview"])
 
 with tab1:
-    st.subheader("Name Popularity Over Time")
-    filtered_data = names_data[names_data["Name"] == selected_name]
-    if not filtered_data.empty:
-        trend_chart = px.line(filtered_data, x="Year", y="Count", color="Gender", title=f"Trends for '{selected_name}'")
-        st.plotly_chart(trend_chart)
-    else:
-        st.write("No data available for the entered name.")
-
     st.subheader("One-Hit Wonder Names")
     ohw_chart = px.histogram(
         one_hit_wonder_data[one_hit_wonder_data["Year"] == selected_year],
